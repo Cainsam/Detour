@@ -1,14 +1,34 @@
 import pygame
 import city_events
 import dictonaries
+import io
+from urllib.request import urlopen
+
+import image_scraper
+from city_events import car
+
 # Initialize Pygame
 pygame.init()
+imageflag = 0
 
-# Words/Dialogue
+# Return a car image from the image scraper. If the image won't/can't be used, cycles through higher index choices.
+def car_pic(index):
+    try:
+        image_url = image_scraper.get_imageAPI(index, car[0] + " " + car[1])
+        image_str = urlopen(image_url).read()
+        image_file = io.BytesIO(image_str)
+        image = pygame.image.load(image_file)
+        image = pygame.transform.scale(image, (500, 300))
+    except:
+       return car_pic(index + 1)
+    return image
+
+# Words/Dialogue rendering
 title_font = pygame.font.Font('freesansbold.ttf', 64)
 play_font = pygame.font.Font('freesansbold.ttf', 32)
 dia_font = pygame.font.Font('freesansbold.ttf', 14)
 
+# Different text options
 def dialogue_text(dia, x, y, r, g, b):
     text = dia_font.render(dia, True, (r, g, b))
     screen.blit(text, (x, y))
@@ -25,9 +45,11 @@ def exit_text(x,y, r, g, b):
     exit = play_font.render("Exit Game", True, (r, g, b))
     screen.blit(exit, (x, y))
 
+# Place a sprite on the screen
 def sprite_place(img,x,y):
     screen.blit(img, (x, y))
 
+# Handles the many text screens in the game
 def write(dia_options):
     for i in dia_options:
         if type(i) != str and type(i) != int:
@@ -42,16 +64,16 @@ pygame.display.set_caption("Detour")
 icon = pygame.image.load('PixelCar6.png')
 pygame.display.set_icon(icon)
 
-# Start setup
+# Variable that controls what screen we are on
 cur_screen = "Title Screen"
 
-# City Images
+# City Map Sprite Images
 city_red = pygame.image.load('city_red.png')
 city_green = pygame.image.load('city_green.png')
 city_grey = pygame.image.load('city_grey.png')
 city_black = pygame.image.load('city_black.png')
 
-# Game running loop
+# Game running loop. Everything under here is checked every frame.
 running = True
 while running:
     for event in pygame.event.get():
@@ -89,9 +111,10 @@ while running:
 
     # Map Screen-----
     if cur_screen == "map":
-        background = pygame.image.load("test_map800.jpg")
+        background = pygame.image.load("map.jpg")
         screen.blit(background, (0, 0))
 
+        # Automatically makes the current city red, and its connections green. All other cities greyed out.
         for city in dictonaries.city_arr:
             if city["Name"] == city_events.cur_city:
                 sprite_place(city_red, city["x"], city["y"])
@@ -113,29 +136,39 @@ while running:
     if cur_screen == "text":
         background = pygame.image.load("blackscreen800.jpg")
         screen.blit(background, (0, 0))
+
+        # Checking for special events like end of a city section or use of the image scraper
         if city_events.city_event(city_events.cur_city, 0)[9] == 1:
             city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[5]
             cur_screen = "map"
-        elif 420 > pygame.mouse.get_pos()[1] > 380:
-            write(city_events.city_event(city_events.cur_city, 1))
-            for event in pygame.event.get():
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[5]
-        elif 470 > pygame.mouse.get_pos()[1] > 430:
-            write(city_events.city_event(city_events.cur_city, 2))
-            for event in pygame.event.get():
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[6]
-        elif 520 > pygame.mouse.get_pos()[1] > 480:
-            write(city_events.city_event(city_events.cur_city, 3))
-            for event in pygame.event.get():
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[7]
-        elif 470 > pygame.mouse.get_pos()[1] > 530:
-            write(city_events.city_event(city_events.cur_city, 4))
-            for event in pygame.event.get():
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[8]
-        else:
-            write(city_events.city_event(city_events.cur_city, 0))
-        pygame.display.update()
+        elif city_events.city_event(city_events.cur_city, 0)[9] == 2:
+            if imageflag == 0:
+                image = car_pic(0)
+                imageflag = 1
+            screen.blit(image, (150, 50))
+
+        # Highlighting text when the mouse hovers over it
+        if cur_screen == "text":
+            if 420 > pygame.mouse.get_pos()[1] > 380:
+                write(city_events.city_event(city_events.cur_city, 1))
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[5]
+            elif 470 > pygame.mouse.get_pos()[1] > 430:
+                write(city_events.city_event(city_events.cur_city, 2))
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[6]
+            elif 520 > pygame.mouse.get_pos()[1] > 480:
+                write(city_events.city_event(city_events.cur_city, 3))
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[7]
+            elif 570 > pygame.mouse.get_pos()[1] > 530:
+                write(city_events.city_event(city_events.cur_city, 4))
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[8]
+            else:
+                write(city_events.city_event(city_events.cur_city, 0))
+            pygame.display.update()

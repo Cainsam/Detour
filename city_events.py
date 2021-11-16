@@ -4,6 +4,7 @@ import random
 
 import dictonaries
 
+# Global Variables
 x_pos = 10
 top_pos = 10
 pos1 = 400
@@ -16,7 +17,6 @@ dia_b = 200
 dia_hov_r = 200
 dia_hov_g = 0
 dia_hov_b = 0
-
 cur_city = "first"
 city_conn = ["Meat Export", "Lion Industries"]
 passengers = []
@@ -24,7 +24,9 @@ events = []
 event_archive = []
 random_num = []
 city = ["null"]
+car = ["color", "type"]
 
+# Returns a simple random number between 1 and 4
 def random_roll():
     roll = random.random()
     if roll < .25:
@@ -36,8 +38,9 @@ def random_roll():
     else:
         return 4
 
-
+# Controls the if-then options for in-game choices. Changes event by changing the city-name.
 def city_event(city_name, select):
+    # Color change code for mouse hovering over text
     if select == 0:
         r1 = r2 = r3 = r4 = dia_r
         g1 = g2 = g3 = g4 = dia_g
@@ -71,8 +74,117 @@ def city_event(city_name, select):
         g4 = dia_hov_g
         b4 = dia_hov_b
 
-    # ___FIRST CITY___
+    # ___Game Introduction (Raven Events)___
     if city_name == "first":
+        top = ["Another morning in Raven. It's still strange to see the sun in Cornelius Consumption.", 10, 10, 200, 200, 200]
+        o1 = ["A true morning in Cornelius Consumption. Never thought I'd live to see it.", x_pos, pos1, r1, g1, b1]
+        o2 = []
+        o3 = []
+        o4 = []
+        o1d = "firsto3"
+        o2d = "first"
+        o3d = "first"
+        o4d = "first"
+        end_flag = 0
+    if city_name == "firsto3":
+        top = ["For most it's been 200 years since the sun started rising again. For you it's only been a few days", 10, 10, 200, 200, 200]
+        o1 = ["Why would Mystra send me here and now?", x_pos, pos1, r1, g1, b1]
+        o2 = []
+        o3 = []
+        o4 = []
+        o1d = "firsto4"
+        o2d = city_name
+        o3d = city_name
+        o4d = city_name
+        end_flag = 0
+    if city_name == "firsto4":
+        top = ["You do know that Cornelius is still alive somewhere", 10, 10, 200, 200, 200]
+        o1 = ["Perhaps she sent me to take care of that", x_pos, pos1, r1, g1, b1]
+        o2 = []
+        o3 = []
+        o4 = []
+        o1d = "firsto5"
+        o2d = city_name
+        o3d = city_name
+        o4d = city_name
+        end_flag = 0
+    if city_name == "firsto5":
+        top = ["Whatever the reason, it's time to summon your spirit car", 10, 10, 200, 200, 200]
+        o1 = ["I wonder what God and magic still exists to allow me to summon...", x_pos, pos1, r1, g1, b1]
+        o2 = []
+        o3 = []
+        o4 = []
+        o1d = "firsto6"
+        o2d = city_name
+        o3d = city_name
+        o4d = city_name
+        end_flag = 0
+    if city_name == "firsto6":
+        top = ["What color is your spirit?", 10, 10, 200, 200, 200]
+        o1 = ["Red", x_pos, pos1, r1, g1, b1]
+        o2 = ["Blue", x_pos, pos2, r2, g2, b2]
+        o3 = ["Green", x_pos, pos3, r3, g3, b3]
+        o4 = ["Black", x_pos, pos4, r4, g4, b4]
+        o1d = "firstred"
+        o2d = "firstblue"
+        o3d = "firstgreen"
+        o4d = "firstblack"
+        end_flag = 0
+    if city_name == "firstred":
+        if car[0] == "color":
+            car[0] = "red"
+        return city_event("firsto7", select)
+    if city_name == "firstblue":
+        if car[0] == "color":
+            car[0] = "dark blue"
+        return city_event("firsto7", select)
+    if city_name == "firstgreen":
+        if car[0] == "color":
+            car[0] = "green"
+        return city_event("firsto7", select)
+    if city_name == "firstblack":
+        if car[0] == "color":
+            car[0] = "black"
+        return city_event("firsto7", select)
+    if city_name == "firsto7":
+        top = ["That's right. And what type of vehicle does your spirit produce?", 10, 10, 200, 200, 200]
+        o1 = ["A simple sedan, for the humble soul", x_pos, pos1, r1, g1, b1]
+        o2 = ["A large truck, for the adventurous soul", x_pos, pos2, r2, g2, b2]
+        o3 = ["A sports car, for the flashy soul", x_pos, pos3, r3, g3, b3]
+        o4 = ["An SUV, for the practical soul", x_pos, pos4, r4, g4, b4]
+        o1d = "firstcar"
+        o2d = "firsttruck"
+        o3d = "firstsport"
+        o4d = "firstsuv"
+        end_flag = 0
+    if city_name == "firstcar":
+        if car[1] == "type":
+            car[1] = "honda accord car"
+        return city_event("firsto8", select)
+    if city_name == "firsttruck":
+        if car[1] == "type":
+            car[1] = "ford truck"
+        return city_event("firsto8", select)
+    if city_name == "firstsport":
+        if car[1] == "type":
+            car[1] = "sports car"
+        return city_event("firsto8", select)
+    if city_name == "firstsuv":
+        if car[1] == "type":
+            car[1] = "suv"
+        return city_event("firsto8", select)
+    if city_name == "firsto8":
+        top = ["Here is your car:", 10, 10, 200, 200, 200]
+        o1 = ["Seems about right", x_pos, pos1, r1, g1, b1]
+        o2 = []
+        o3 = []
+        o4 = []
+        o1d = "first00"
+        o2d = city_name
+        o3d = city_name
+        o4d = city_name
+        end_flag = 2
+    if city_name == "first00":
         top = ["You are in Raven, you are driving elsewhere. Do you want to take Christine or Henry with you?", 10, 10, 200, 200, 200]
         o1 = ["1. Christine", x_pos, pos1, r1, g1, b1]
         o2 = ["2. Henry", x_pos, pos2, r2, g2, b2]
@@ -85,11 +197,11 @@ def city_event(city_name, select):
         end_flag = 0
     if city_name == "firsto1":
         top = ["Christine joins your car!", 10, 10, 200, 200, 200]
-        o1 = ["1. Choose destination", x_pos, pos1, r1, g1, b1]
+        o1 = ["1. Great!", x_pos, pos1, r1, g1, b1]
         o2 = []
         o3 = []
         o4 = []
-        o1d = "firstend"
+        o1d = "Raven"
         o2d = city_name
         o3d = city_name
         o4d = city_name
@@ -98,20 +210,20 @@ def city_event(city_name, select):
             passengers.append("Christine")
     if city_name == "firsto2":
         top = ["Henry joins your car!", 10, 10, 200, 200, 200]
-        o1 = ["1. Choose destination", x_pos, pos1, r1, g1, b1]
+        o1 = ["1. Great!", x_pos, pos1, r1, g1, b1]
         o2 = []
         o3 = []
         o4 = []
-        o1d = "firstend"
+        o1d = "Raven"
         o2d = city_name
         o3d = city_name
         o4d = city_name
         end_flag = 0
         if "Henry" not in passengers:
             passengers.append("Henry")
-    if city_name == "firstend":
-        top = []
-        o1 = []
+    if city_name == "Raven":
+        top = ["Choose your destination..."]
+        o1 = ["1. Continue"]
         o2 = []
         o3 = []
         o4 = []
@@ -121,7 +233,7 @@ def city_event(city_name, select):
         o4d = city_name
         end_flag = 1
 
-    # ___MEAT EXPORT___#
+    # ___Meat Export Events___
     if city_name == "Meat Export Event":
         top = ["You are at Meat Export.", 10, 10, 200,
            200, 200]
@@ -308,6 +420,7 @@ def city_event(city_name, select):
             random_num.pop()
 
     # ____Lion Industries Events___
+
     if city_name == "Lion Industries Event":
         top = ["You are at Lion Industries.", 10, 10, 200,
            200, 200]
@@ -436,7 +549,7 @@ def city_event(city_name, select):
             events.append("Henry Lion Industries Event")
             for person in dictonaries.pass_arr:
                 if person["Name"] == "Henry":
-                    person["AttituMeatde"] -= 5
+                    person["Attitude"] -= 5
         while random_num != []:
             random_num.pop()
 
@@ -492,9 +605,8 @@ def city_event(city_name, select):
                     person["Attitude"] += 5
         while random_num != []:
             random_num.pop()
-
     # ____Passenger Events___
-
+    # These events can randomly happen if the passenger is in your car and traveling to any city.
     if city_name == "Christine Event":
         top = ["Christine tells you about her wild backstory", 10, 10, 200,
                200, 200]
