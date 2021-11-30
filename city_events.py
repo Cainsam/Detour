@@ -5,23 +5,39 @@ import random
 import dictonaries
 
 # Global Variables
+
+# Tells main where the dialogue is placed
 x_pos = 10
 top_pos = 10
 pos1 = 400
 pos2 = 450
 pos3 = 500
 pos4 = 550
+
+# Controls the RGB values of text when hovered over and when not hovered over
 dia_r = 200
 dia_g = 200
 dia_b = 200
 dia_hov_r = 200
 dia_hov_g = 0
 dia_hov_b = 0
+
+# Controls the if/than statements and tracks dialogue
 cur_city = "first"
+
+# Tells main what cities are connected to our current city
 city_conn = ["Meat Export", "Lion Industries"]
+
+# List of people riding in our car with us
 passengers = []
+
+# List of events currently happening
 events = []
+
+# List of events that have ended
 event_archive = []
+
+# Basic variable that need to be lists because of how pygame reads these functions every frame
 random_num = []
 city = ["null"]
 car = ["color", "type"]
@@ -41,6 +57,7 @@ def random_roll():
 # Controls the if-then options for in-game choices. Changes event by changing the city-name.
 def city_event(city_name, select):
     # Color change code for mouse hovering over text
+    # r g and b are the red, green and blue values for each line of text.
     if select == 0:
         r1 = r2 = r3 = r4 = dia_r
         g1 = g2 = g3 = g4 = dia_g
@@ -77,58 +94,58 @@ def city_event(city_name, select):
     # ___Game Introduction (Raven Events)___
     if city_name == "first":
         top = ["Another morning in Raven. It's still strange to see the sun in Cornelius Consumption.", 10, 10, 200, 200, 200]
-        o1 = ["A true morning in Cornelius Consumption. Never thought I'd live to see it.", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "firsto3"
-        o2d = "first"
-        o3d = "first"
-        o4d = "first"
+        opt1 = ["A true morning in Cornelius Consumption. Never thought I'd live to see it.", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "firstopt3"
+        choice2 = "first"
+        choice3 = "first"
+        choice4 = "first"
         end_flag = 0
-    if city_name == "firsto3":
+    if city_name == "firstopt3":
         top = ["For most it's been 200 years since the sun started rising again. For you it's only been a few days", 10, 10, 200, 200, 200]
-        o1 = ["Why would Mystra send me here and now?", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "firsto4"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["Why would Mystra send me here and now?", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "firstopt4"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
-    if city_name == "firsto4":
+    if city_name == "firstopt4":
         top = ["You do know that Cornelius is still alive somewhere", 10, 10, 200, 200, 200]
-        o1 = ["Perhaps she sent me to take care of that", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "firsto5"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["Perhaps she sent me to take care of that", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "firsto5"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
     if city_name == "firsto5":
         top = ["Whatever the reason, it's time to summon your spirit car", 10, 10, 200, 200, 200]
-        o1 = ["I wonder what God and magic still exists to allow me to summon...", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "firsto6"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["I wonder what God and magic still exists to allow me to summon...", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "firsto6"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
     if city_name == "firsto6":
         top = ["What color is your spirit?", 10, 10, 200, 200, 200]
-        o1 = ["Red", x_pos, pos1, r1, g1, b1]
-        o2 = ["Blue", x_pos, pos2, r2, g2, b2]
-        o3 = ["Green", x_pos, pos3, r3, g3, b3]
-        o4 = ["Black", x_pos, pos4, r4, g4, b4]
-        o1d = "firstred"
-        o2d = "firstblue"
-        o3d = "firstgreen"
-        o4d = "firstblack"
+        opt1 = ["Red", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Blue", x_pos, pos2, r2, g2, b2]
+        opt3 = ["Green", x_pos, pos3, r3, g3, b3]
+        opt4 = ["Black", x_pos, pos4, r4, g4, b4]
+        choice1 = "firstred"
+        choice2 = "firstblue"
+        choice3 = "firstgreen"
+        choice4 = "firstblack"
         end_flag = 0
     if city_name == "firstred":
         if car[0] == "color":
@@ -148,14 +165,14 @@ def city_event(city_name, select):
         return city_event("firsto7", select)
     if city_name == "firsto7":
         top = ["That's right. And what type of vehicle does your spirit produce?", 10, 10, 200, 200, 200]
-        o1 = ["A simple sedan, for the humble soul", x_pos, pos1, r1, g1, b1]
-        o2 = ["A large truck, for the adventurous soul", x_pos, pos2, r2, g2, b2]
-        o3 = ["A sports car, for the flashy soul", x_pos, pos3, r3, g3, b3]
-        o4 = ["An SUV, for the practical soul", x_pos, pos4, r4, g4, b4]
-        o1d = "firstcar"
-        o2d = "firsttruck"
-        o3d = "firstsport"
-        o4d = "firstsuv"
+        opt1 = ["A simple sedan, for the humble soul", x_pos, pos1, r1, g1, b1]
+        opt2 = ["A large truck, for the adventurous soul", x_pos, pos2, r2, g2, b2]
+        opt3 = ["A sports car, for the flashy soul", x_pos, pos3, r3, g3, b3]
+        opt4 = ["An SUV, for the practical soul", x_pos, pos4, r4, g4, b4]
+        choice1 = "firstcar"
+        choice2 = "firsttruck"
+        choice3 = "firstsport"
+        choice4 = "firstsuv"
         end_flag = 0
     if city_name == "firstcar":
         if car[1] == "type":
@@ -175,91 +192,91 @@ def city_event(city_name, select):
         return city_event("firsto8", select)
     if city_name == "firsto8":
         top = ["Here is your car:", 10, 10, 200, 200, 200]
-        o1 = ["Seems about right", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "first00"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["Seems about right", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "first00"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 2
     if city_name == "first00":
         top = ["You are in Raven, you are driving elsewhere. Do you want to take Christine or Henry with you?", 10, 10, 200, 200, 200]
-        o1 = ["1. Christine", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. Henry", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "firsto1"
-        o2d = "firsto2"
-        o3d = "first"
-        o4d = "first"
+        opt1 = ["1. Christine", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. Henry", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "firstopt1"
+        choice2 = "firstopt2"
+        choice3 = "first"
+        choice4 = "first"
         end_flag = 0
-    if city_name == "firsto1":
+    if city_name == "firstopt1":
         top = ["Christine joins your car!", 10, 10, 200, 200, 200]
-        o1 = ["1. Great!", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Raven"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Great!", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Raven"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Christine" not in passengers:
             passengers.append("Christine")
-    if city_name == "firsto2":
+    if city_name == "firstopt2":
         top = ["Henry joins your car!", 10, 10, 200, 200, 200]
-        o1 = ["1. Great!", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Raven"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Great!", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Raven"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Henry" not in passengers:
             passengers.append("Henry")
     if city_name == "Raven":
         top = ["Choose your destination..."]
-        o1 = ["1. Continue"]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Raven"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Continue"]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Raven"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 1
 
     # ___Meat Export Events___
     if city_name == "Meat Export Event":
         top = ["You are at Meat Export.", 10, 10, 200,
            200, 200]
-        o1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. Cool", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Meat Export Evento1"
-        o2d = "Meat Export Evento1"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. Cool", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Eventopt1"
+        choice2 = "Meat Export Eventopt1"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Meat Export Evento1":
+    if city_name == "Meat Export Eventopt1":
         top = ["I hope you enjoyed your drive!", 10, 10, 200,
            200, 200]
-        o1 = ["1. I did", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Meat Export"
-        o2d = "Meat Export"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. I did", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export"
+        choice2 = "Meat Export"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
 
     if city_name == "Meat Export":
@@ -271,14 +288,14 @@ def city_event(city_name, select):
                     city_conn.append(i)
         top = ["I hope you enjoyed your drive!", 10, 10, 200,
            200, 200]
-        o1 = ["1. I did", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Meat Export"
-        o2d = "Meat Export"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. I did", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export"
+        choice2 = "Meat Export"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 1
 
     if city_name == "Meat Export Start":
@@ -316,27 +333,27 @@ def city_event(city_name, select):
     if city_name == "Henry Meat Export Event":
         top = ["Henry tells you he doesn't like Meat Export", 10, 10, 200,
                200, 200]
-        o1 = ["1. I don't care Henry", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. I do care Henry", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Henry Meat Export Evento1"
-        o2d = "Henry Meat Export Evento2"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. I don't care Henry", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. I do care Henry", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Henry Meat Export Eventopt1"
+        choice2 = "Henry Meat Export Eventopt2"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
 
-    if city_name == "Henry Meat Export Evento1":
+    if city_name == "Henry Meat Export Eventopt1":
         top = ["Henry is not pleased with your actions", 10, 10, 200,
                200, 200]
-        o1 = ["1. Whatevs", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Meat Export Start"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Whatevs", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Henry Meat Export Event" not in events:
             events.append("Henry Meat Export Event")
@@ -346,17 +363,17 @@ def city_event(city_name, select):
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Henry Meat Export Evento2":
+    if city_name == "Henry Meat Export Eventopt2":
         top = ["Henry is pleased with your actions", 10, 10, 200,
                200, 200]
-        o1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Meat Export Start"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Henry Meat Export Event" not in events:
             events.append("Henry Meat Export Event")
@@ -369,27 +386,27 @@ def city_event(city_name, select):
     if city_name == "Christine Meat Export Event":
         top = ["Christine tells you she likes Meat Export", 10, 10, 200,
                200, 200]
-        o1 = ["1. I also like Meat Export", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. I do not care for Meat Export", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Christine Meat Export Evento1"
-        o2d = "Christine Meat Export Evento2"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. I also like Meat Export", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. I do not care for Meat Export", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Christine Meat Export Eventopt1"
+        choice2 = "Christine Meat Export Eventopt2"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
 
-    if city_name == "Christine Meat Export Evento1":
+    if city_name == "Christine Meat Export Eventopt1":
         top = ["Christine is pleased with your actions", 10, 10, 200,
                200, 200]
-        o1 = ["1. Cool", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Meat Export Start"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Cool", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Christine Meat Export Event" not in events:
             events.append("Christine Meat Export Event")
@@ -399,17 +416,17 @@ def city_event(city_name, select):
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Christine Meat Export Evento2":
+    if city_name == "Christine Meat Export Eventopt2":
         top = ["Christine is not pleased with your actions", 10, 10, 200,
                200, 200]
-        o1 = ["1. Bummer", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Meat Export Start"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Bummer", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Christine Meat Export Event" not in events:
             events.append("Christine  Export Event")
@@ -424,29 +441,29 @@ def city_event(city_name, select):
     if city_name == "Lion Industries Event":
         top = ["You are at Lion Industries.", 10, 10, 200,
            200, 200]
-        o1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. Cool", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Lion Industries Evento1"
-        o2d = "Lion Industries Evento1"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. Cool", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Lion Industries Eventopt1"
+        choice2 = "Lion Industries Eventopt1"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Lion Industries Evento1":
+    if city_name == "Lion Industries Eventopt1":
         top = ["I hope you enjoyed your drive!", 10, 10, 200,
            200, 200]
-        o1 = ["1. I did", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Lion Industries"
-        o2d = "Lion Industries"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. I did", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Lion Industries"
+        choice2 = "Lion Industries"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
 
     if city_name == "Lion Industries":
@@ -458,14 +475,14 @@ def city_event(city_name, select):
                     city_conn.append(i)
         top = ["I hope you enjoyed your drive!", 10, 10, 200,
            200, 200]
-        o1 = ["1. I did", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Lion Industries"
-        o2d = "Lion Industries"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. I did", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Lion Industries"
+        choice2 = "Lion Industries"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 1
 
     if city_name == "Lion Industries Start":
@@ -503,27 +520,27 @@ def city_event(city_name, select):
     if city_name == "Henry Lion Industries Event":
         top = ["Henry tells you he does like Lion Industries", 10, 10, 200,
                200, 200]
-        o1 = ["1. I agree Henry", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. I think you are stinky Henry", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Henry Lion Industries Evento1"
-        o2d = "Henry Lion Industries Evento2"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. I agree Henry", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. I think you are stinky Henry", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Henry Lion Industries Eventopt1"
+        choice2 = "Henry Lion Industries Eventopt2"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
 
-    if city_name == "Henry Lion Industries Evento1":
+    if city_name == "Henry Lion Industries Eventopt1":
         top = ["Henry is pleased with your actions", 10, 10, 200,
                200, 200]
-        o1 = ["1. Heck Yea!", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Lion Industries Start"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Heck Yea!", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Lion Industries Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Henry Lion Industries Event" not in events:
             events.append("Henry Lion Industries Event")
@@ -533,17 +550,17 @@ def city_event(city_name, select):
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Henry Lion Industries Evento2":
+    if city_name == "Henry Lion Industries Eventopt2":
         top = ["Henry is not pleased with your actions", 10, 10, 200,
                200, 200]
-        o1 = ["1. Like I even care", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Lion Industries Start"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Like I even care", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Lion Industries Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Henry Lion Industries Event" not in events:
             events.append("Henry Lion Industries Event")
@@ -556,27 +573,27 @@ def city_event(city_name, select):
     if city_name == "Christine Lion Industries Event":
         top = ["Christine tells you she HATES Lion Industries", 10, 10, 200,
                200, 200]
-        o1 = ["1. I HATES Christine", x_pos, pos1, r1, g1, b1]
-        o2 = ["2. I do not care for Lion Industries either", x_pos, pos2, r2, g2, b2]
-        o3 = []
-        o4 = []
-        o1d = "Christine Lion Industries Evento1"
-        o2d = "Christine Lion Industries Evento2"
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. I HATES Christine", x_pos, pos1, r1, g1, b1]
+        opt2 = ["2. I do not care for Lion Industries either", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Christine Lion Industries Eventopt1"
+        choice2 = "Christine Lion Industries Eventopt2"
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
 
-    if city_name == "Christine Lion Industries Evento1":
+    if city_name == "Christine Lion Industries Eventopt1":
         top = ["Christine is NOT pleased with your actions", 10, 10, 200,
                200, 200]
-        o1 = ["1. Whatevs", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Lion Industries Start"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Whatevs", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Lion Industries Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Christine Lion Industries Event" not in events:
             events.append("Christine Lion Industries Event")
@@ -586,17 +603,17 @@ def city_event(city_name, select):
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Christine Lion Industries Evento2":
+    if city_name == "Christine Lion Industries Eventopt2":
         top = ["Christine is pleased with your actions", 10, 10, 200,
                200, 200]
-        o1 = ["1. Woo hoo!", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Lion Industries Start"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Woo hoo!", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Lion Industries Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Christine Lion Industries Event" not in events:
             events.append("Christine Lion Industries Event")
@@ -610,27 +627,27 @@ def city_event(city_name, select):
     if city_name == "Christine Event":
         top = ["Christine tells you about her wild backstory", 10, 10, 200,
                200, 200]
-        o1 = ["1. What a wild backstory!", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Christine Evento1"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. What a wild backstory!", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Christine Eventopt1"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
 
-    if city_name == "Christine Evento1":
+    if city_name == "Christine Eventopt1":
         top = ["Christine confidently agrees", 10, 10, 200,
                200, 200]
-        o1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = city[0]
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = city[0]
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Christine Event" not in events:
             events.append("Christine Event")
@@ -643,27 +660,27 @@ def city_event(city_name, select):
     if city_name == "Henry Event":
         top = ["Henry talks about his life", 10, 10, 200,
                200, 200]
-        o1 = ["1. Sounds like quite the life!", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = "Henry Evento1"
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Sounds like quite the life!", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Henry Eventopt1"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
 
-    if city_name == "Henry Evento1":
+    if city_name == "Henry Eventopt1":
         top = ["Henry bashfully agrees", 10, 10, 200,
                200, 200]
-        o1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
-        o2 = []
-        o3 = []
-        o4 = []
-        o1d = city[0]
-        o2d = city_name
-        o3d = city_name
-        o4d = city_name
+        opt1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = city[0]
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
         end_flag = 0
         if "Henry Event" not in events:
             events.append("Henry Event")
@@ -676,4 +693,4 @@ def city_event(city_name, select):
     if len(passengers) > 3:
         pass
 
-    return [top, o1, o2, o3, o4, o1d, o2d, o3d, o4d, end_flag]
+    return [top, opt1, opt2, opt3, opt4, choice1, choice2, choice3, choice4, end_flag]

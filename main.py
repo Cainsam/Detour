@@ -7,7 +7,6 @@ from urllib.request import urlopen
 import image_scraper
 from city_events import car
 
-# Initialize Pygame
 pygame.init()
 imageflag = 0
 
@@ -92,7 +91,7 @@ while running:
         title_text(255, 200)
 
         # Play Game Text
-        if pygame.mouse.get_pos()[0] > 297 and pygame.mouse.get_pos()[0] < 472 and pygame.mouse.get_pos()[1] > 299 and pygame.mouse.get_pos()[1] < 329:
+        if 297 < pygame.mouse.get_pos()[0] < 472 and 299 < pygame.mouse.get_pos()[1] < 329:
                 play_text(300, 300, 255, 0, 0)
                 for event in pygame.event.get():
                     if event.type == pygame.MOUSEBUTTONDOWN:
@@ -101,7 +100,7 @@ while running:
             play_text(300, 300, 255, 255, 255)
 
         # Exit Game Text
-        if pygame.mouse.get_pos()[0] > 302 and pygame.mouse.get_pos()[0] < 466 and pygame.mouse.get_pos()[1] > 354 and pygame.mouse.get_pos()[1] < 376:
+        if 302 < pygame.mouse.get_pos()[0] < 466 and 354 < pygame.mouse.get_pos()[1] < 376:
             exit_text(302, 350, 255, 0, 0)
             if pygame.mouse.get_pressed()[0] == 1:
                 running = False
@@ -119,7 +118,7 @@ while running:
             if city["Name"] == city_events.cur_city:
                 sprite_place(city_red, city["x"], city["y"])
             elif city["Name"] in city_events.city_conn:
-                if pygame.mouse.get_pos()[0] > city["x"] and pygame.mouse.get_pos()[0] < (city["x"] + 50) and pygame.mouse.get_pos()[1] > city["y"] and pygame.mouse.get_pos()[1] < (city["y"] + 50):
+                if city["x"] < pygame.mouse.get_pos()[0] < (city["x"] + 50) and city["y"] < pygame.mouse.get_pos()[1] < (city["y"] + 50):
                     sprite_place(city_green, city["x"], city["y"])
                     for event in pygame.event.get():
                         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -149,26 +148,36 @@ while running:
 
         # Highlighting text when the mouse hovers over it
         if cur_screen == "text":
+
+            # If mouse is over dialogue choice 1, highlight it
             if 420 > pygame.mouse.get_pos()[1] > 380:
                 write(city_events.city_event(city_events.cur_city, 1))
                 for event in pygame.event.get():
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[5]
+
+            # If mouse is over dialogue choice 2, highlight it
             elif 470 > pygame.mouse.get_pos()[1] > 430:
                 write(city_events.city_event(city_events.cur_city, 2))
                 for event in pygame.event.get():
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[6]
+
+            # If mouse is over dialogue choice 3, highlight it
             elif 520 > pygame.mouse.get_pos()[1] > 480:
                 write(city_events.city_event(city_events.cur_city, 3))
                 for event in pygame.event.get():
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[7]
+
+            # If mouse is over dialogue choice 4, highlight it
             elif 570 > pygame.mouse.get_pos()[1] > 530:
                 write(city_events.city_event(city_events.cur_city, 4))
                 for event in pygame.event.get():
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         city_events.cur_city = city_events.city_event(city_events.cur_city, 0)[8]
+
+            # Otherwise, highlight nothing
             else:
                 write(city_events.city_event(city_events.cur_city, 0))
             pygame.display.update()
