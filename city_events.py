@@ -318,30 +318,272 @@ def city_event(city_name, select):
 
     # ___Meat Export Events___
     if city_name == "Meat Export Event":
-        top = ["You are at Meat Export.", 10, 10, 200,
+        top = ["You finally pull into Meat Export, the massive array of defunct cube-shaped factories stretch across the horizon", 10, 10, 200,
            200, 200]
-        opt1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
-        opt2 = ["2. Cool", x_pos, pos2, r2, g2, b2]
-        opt3 = []
-        opt4 = []
-        choice1 = "Meat Export Eventopt1"
-        choice2 = "Meat Export Eventopt1"
-        choice3 = city_name
-        choice4 = city_name
+        opt1 = ["A reminder of what we accomplished when we overthrew the corrupt leaders of this land", x_pos, pos1, r1, g1, b1]
+        opt2 = ["A reminder of the dead space that is left behind when a great power is dethroned", x_pos, pos2, r2, g2, b2]
+        opt3 = ["A reminder of the couldn't support their families after the factories were shut down", x_pos, pos3, r3, g3, b3]
+        opt4 = ["Trying to create symbolism from this is meaningless. We did what we had to, this is just the result.", x_pos, pos4, r4, g4, b4]
+        choice1 = "Meat Export Event01"
+        choice2 = "Meat Export Event01"
+        choice3 = "Meat Export Event01"
+        choice4 = "Meat Export Event01"
         end_flag = 0
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Meat Export Eventopt1":
-        top = ["I hope you enjoyed your drive!", 10, 10, 200,
+    if city_name == "Meat Export Event01":
+        top = ["You ask " + passengers[0] + " if they want to stop for a drink, they shrug and say 'either way'", 10, 10, 200,
            200, 200]
-        opt1 = ["1. I did", x_pos, pos1, r1, g1, b1]
-        opt2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
+        opt1 = ["Stop for a drink", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Keep driving", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Event02"
+        choice2 = "Meat Export"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export Event01":
+        top = ["You ask " + passengers[0] + " if they want to stop for a drink, they shrug and say 'either way'", 10, 10, 200,
+           200, 200]
+        opt1 = ["Stop for a drink", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Keep driving", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Event02"
+        choice2 = "Meat Export"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export Event02":
+        top = ["You ask " + passengers[0] + " if they want to stop for a drink, they shrug and say 'either way'", 10, 10, 200,
+           200, 200]
+        opt1 = ["Stop for a drink", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Keep driving", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Event04"
+        choice2 = "Meat Export Event03"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export Event03":
+        top = ["You've spent enough time here. It's time to move on", 10, 10, 200,
+               200, 200]
+        opt1 = ["Dark history here. Hopefully it gets better with time.", x_pos, pos1, r1, g1, b1]
+        opt2 = []
         opt3 = []
         opt4 = []
         choice1 = "Meat Export"
-        choice2 = "Meat Export"
+        choice2 = city_name
         choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export Event04":
+        top = ["The first bar you see open is called 'The Meat Grinder'. Dim candle light becons you inside", 10, 10, 200,
+               200, 200]
+        opt1 = ["Probably best not to mention that the lack of electricity is my fault...", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Event05"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export Event05":
+        top = ["You and " + passengers[0] + " order a drink. You can't help but notice everyone staring at you.", 10, 10, 200,
+               200, 200]
+        opt1 = ["You're the only person left with a car. Probably all wondering how you got here.", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Event06"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export Event06":
+        top = ["An orc sitting at a nearby stool finally speaks up, 'why the hell are an elf and a human in Meet Export?'", 10, 10, 200,
+               200, 200]
+        opt1 = ["'Just passing through'", x_pos, pos1, r1, g1, b1]
+        opt2 = ["(Stay silent)", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Event07"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export Event07":
+        top = ["'Last time strangers came to town, they went through our houses, took everything we had...' The orc stands up", 10, 10, 200,
+               200, 200]
+        opt1 = ["Prepare to defend yourself...", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        if passengers[0] == "Henry":
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Henry":
+                    if person["Attitude"] >= 0:
+                        choice1 = "Meat Export EventHenry+"
+                    else:
+                        choice1 = "Meat Export EventHenry-"
+        else:
+            choice1 = "Meat Export EventChristine1"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export EventHenry+":
+        top = ["Henry speaks up, 'My friend and I aren't those strangers. I was here for the union wars. On your side.'", 10, 10, 200,
+               200, 200]
+        opt1 = ["Henry seems more confident than usual", x_pos, pos1, r1, g1, b1]
+        opt2 = ["It's nice that he called me friend", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export EventHenry+1"
+        choice2 = "Meat Export EventHenry+1"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export EventHenry+1":
+        top = ["The Orc nods and backs down. 'Sorry, we have to be slow to trust now. You understand...'", 10, 10, 200,
+               200, 200]
+        opt1 = ["50 years ago you and your family took Cornelius' crystal, taking his power away", x_pos, pos1, r1, g1, b1]
+        opt2 = ["At the time it seemed like the only right thing to do. It was the heist of the century", x_pos, pos2, r2, g2, b2]
+        opt3 = ["One of many heists of the century for your family. You hope they got sent back as well...", x_pos, pos3, r3, g3, b3]
+        opt4 = ["Taking his power freed the workers... but also left them with nothing. You stay silent about it all.", x_pos, pos4, r4, g4, b4]
+        choice1 = "Meat Export EventHenry+2"
+        choice2 = "Meat Export EventHenry+2"
+        choice3 = "Meat Export EventHenry+2"
+        choice4 = "Meat Export EventHenry+2"
+        end_flag = 0
+
+    if city_name == "Meat Export EventHenry+2":
+        top = ["You drink in silence and leave. Henry seems sorrowful, but strangely at peace", 10, 10, 200,
+               200, 200]
+        opt1 = ["Glad to have him along for the ride", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Event03"
+        choice2 = "Meat Export EventHenry+2"
+        choice3 = "Meat Export EventHenry+2"
+        choice4 = "Meat Export EventHenry+2"
+        end_flag = 0
+
+    if city_name == "Meat Export EventHenry-":
+        top = ["Henry speaks up, 'I was here for the union wars, I fought for the workers here.'", 10, 10, 200,
+               200, 200]
+        opt1 = ["Henry seems more confident than usual", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export EventHenry-1"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export EventHenry-1":
+        top = ["'And your friend?' asks the Orc. 'Not my friend... but not your enemy' Henry replies", 10, 10, 200,
+               200, 200]
+        opt1 = ["Kind of cold...", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export EventHenry-2"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export EventHenry-2":
+        top = ["The Orc nods and backs down. 'Sorry, we have to be slow to trust now. You understand...'", 10, 10, 200,
+               200, 200]
+        opt1 = ["50 years ago you and your family took Cornelius' crystal, taking his power away", x_pos, pos1, r1, g1, b1]
+        opt2 = ["At the time it seemed like the only right thing to do. It was the heist of the century", x_pos, pos2, r2, g2, b2]
+        opt3 = ["One of many heists of the century for your family. You hope they got sent back as well...", x_pos, pos3, r3, g3, b3]
+        opt4 = ["Taking his power freed the workers... but also left them with nothing. You stay silent about it all.", x_pos, pos4, r4, g4, b4]
+        choice1 = "Meat Export EventHenry-3"
+        choice2 = "Meat Export EventHenry-3"
+        choice3 = "Meat Export EventHenry-3"
+        choice4 = "Meat Export EventHenry-3"
+        end_flag = 0
+
+    if city_name == "Meat Export EventHenry-3":
+        top = ["You drink in silence and leave. Henry avoids eye contact.", 10, 10, 200,
+               200, 200]
+        opt1 = ["You do the same", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Event03"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export EventChristine1":
+        top = ["'Fuck off.' Snaps Christine 'We aren't thieves, and we don't want your shit'", 10, 10, 200,
+               200, 200]
+        opt1 = ["You were quite a good thief actually, but best not to mention that now", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export EventChristine2"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export EventChristine2":
+        top = ["The Orc stands up. So does Christine. So do the rest of the patrons", 10, 10, 200,
+               200, 200]
+        opt1 = ["'By the connected powers and the soul of the city...'", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export EventChristine3"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Meat Export EventChristine3":
+        top = ["You finish casting your spell right as its about to come to blows. The patrons stand, frozen in time.", 10, 10, 200,
+               200, 200]
+        opt1 = ["50 years ago you and your family took Cornelius' crystal, taking his power away", x_pos, pos1, r1, g1, b1]
+        opt2 = ["At the time it seemed like the only right thing to do. It was the heist of the century", x_pos, pos2, r2, g2, b2]
+        opt3 = ["One of many heists of the century for your family. You hope they got sent back as well...", x_pos, pos3, r3, g3, b3]
+        opt4 = ["Taking his power freed the workers... but also left them with nothing. Frozen in time.", x_pos, pos4, r4, g4, b4]
+        choice1 = "Meat Export EventChristine4"
+        choice2 = "Meat Export EventChristine4"
+        choice3 = "Meat Export EventChristine4"
+        choice4 = "Meat Export EventChristine4"
+        end_flag = 0
+
+    if city_name == "Meat Export EventChristine4":
+        top = ["'Sorry...' says Christine. 'It's been a stressful few days'", 10, 10, 200,
+               200, 200]
+        opt1 = ["'It's alright, let's just leave before the spell wears off'", x_pos, pos1, r1, g1, b1]
+        opt2 = ["'These people have been beaten enough. Let's not add to it now'", x_pos, pos2, r2, g2, b2]
+        opt3 = ["'Lets just go'", x_pos, pos3, r3, g3, b3]
+        opt4 = []
+        choice1 = "Meat Export Event03"
+        choice2 = "Meat Export Event03"
+        choice3 = "Meat Export Event03"
         choice4 = city_name
         end_flag = 0
 
@@ -352,10 +594,10 @@ def city_event(city_name, select):
             if x["Name"] == "Meat Export":
                 for i in x["Connections"]:
                     city_conn.append(i)
-        top = ["I hope you enjoyed your drive!", 10, 10, 200,
+        top = ["You've spent enough time here. It's time to move on", 10, 10, 200,
            200, 200]
-        opt1 = ["1. I did", x_pos, pos1, r1, g1, b1]
-        opt2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
+        opt1 = ["Dark history here. Hopefully it gets better with time.", x_pos, pos1, r1, g1, b1]
+        opt2 = []
         opt3 = []
         opt4 = []
         choice1 = "Meat Export"
@@ -397,22 +639,48 @@ def city_event(city_name, select):
             return city_event("Meat Export Start", select)
 
     if city_name == "Henry Meat Export Event":
-        top = ["Henry tells you he doesn't like Meat Export", 10, 10, 200,
+        top = ["After driving in silence for a while, Henry breaks the silence. 'Why go through Meat Export?'", 10, 10, 200,
                200, 200]
-        opt1 = ["1. I don't care Henry", x_pos, pos1, r1, g1, b1]
-        opt2 = ["2. I do care Henry", x_pos, pos2, r2, g2, b2]
+        opt1 = ["I want to see how the factories look since they've stopped running", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Honestly, I think the name is funny", x_pos, pos2, r2, g2, b2]
+        opt3 = ["Had to choose somewhere I guess", x_pos, pos3, r3, g3, b3]
+        opt4 = []
+        choice1 = "Henry Meat Export Event01"
+        choice2 = "Henry Meat Export Event01"
+        choice3 = "Henry Meat Export Event01"
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Henry Meat Export Event01":
+        top = ["'Ugly place' Henry says. 'Glad it's gone now'", 10, 10, 200,
+               200, 200]
+        opt1 = ["Me and my family were actually the ones who shut the place down", x_pos, pos1, r1, g1, b1]
+        opt2 = ["I wouldn't call myself a fan either, but now we have no industry... was it worth it?", x_pos, pos2, r2, g2, b2]
+        opt3 = ["There were good people here, but they worked under a monster.", x_pos, pos3, r3, g3, b3]
+        opt4 = ["Hard to believe we were all eating ground up Goblins for years and somehow no one noticed", x_pos, pos4, r4, g4, b4]
+        choice1 = "Henry Meat Export Event02"
+        choice2 = "Henry Meat Export Event03"
+        choice3 = "Henry Meat Export Event04"
+        choice4 = "Henry Meat Export Event04"
+        end_flag = 0
+
+    if city_name == "Henry Meat Export Event02":
+        top = ["Henry smiles 'I had a hunch it was you. Not many people know how summon a " + car[0] + " spirit car'", 10, 10, 200,
+               200, 200]
+        opt1 = ["I think I may have been sent back here to finish off Cornelius", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Keep this a secret okay? I don't want people knowing who I am", x_pos, pos2, r2, g2, b2]
         opt3 = []
         opt4 = []
-        choice1 = "Henry Meat Export Eventopt1"
-        choice2 = "Henry Meat Export Eventopt2"
+        choice1 = "Henry Meat Export Event05"
+        choice2 = "Henry Meat Export Event05"
         choice3 = city_name
         choice4 = city_name
         end_flag = 0
 
-    if city_name == "Henry Meat Export Eventopt1":
-        top = ["Henry is not pleased with your actions", 10, 10, 200,
+    if city_name == "Henry Meat Export Event03":
+        top = ["Henry doesn't even look at you. 'yes. It is.'", 10, 10, 200,
                200, 200]
-        opt1 = ["1. Whatevs", x_pos, pos1, r1, g1, b1]
+        opt1 = ["You sit in silence for a long while", x_pos, pos1, r1, g1, b1]
         opt2 = []
         opt3 = []
         opt4 = []
@@ -429,15 +697,15 @@ def city_event(city_name, select):
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Henry Meat Export Eventopt2":
-        top = ["Henry is pleased with your actions", 10, 10, 200,
+    if city_name == "Henry Meat Export Event04":
+        top = ["I used to live out here. Lots of friends died in those factories. Glad it's over now'", 10, 10, 200,
                200, 200]
-        opt1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
-        opt2 = []
+        opt1 = ["Me too", x_pos, pos1, r1, g1, b1]
+        opt2 = ["you know... it was actually me an my family who took down Cornelius", x_pos, pos2, r2, g2, b2]
         opt3 = []
         opt4 = []
         choice1 = "Meat Export Start"
-        choice2 = city_name
+        choice2 = "Henry Meat Export Event02"
         choice3 = city_name
         choice4 = city_name
         end_flag = 0
@@ -449,11 +717,31 @@ def city_event(city_name, select):
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Christine Meat Export Event":
-        top = ["Christine tells you she likes Meat Export", 10, 10, 200,
+    if city_name == "Henry Meat Export Event05":
+        top = ["I didn't realize I was riding with a legend' Henry smiles 'your secret is safe with me'", 10, 10, 200,
                200, 200]
-        opt1 = ["1. I also like Meat Export", x_pos, pos1, r1, g1, b1]
-        opt2 = ["2. I do not care for Meat Export", x_pos, pos2, r2, g2, b2]
+        opt1 = ["Thanks Henry", x_pos, pos1, r1, g1, b1]
+        opt2 = ["(silently keep driving)", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Meat Export Start"
+        choice2 = "Meat Export Start"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+        if "Henry Meat Export Event" not in events:
+            events.append("Henry Meat Export Event")
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Henry":
+                    person["Attitude"] += 10
+        while random_num != []:
+            random_num.pop()
+
+    if city_name == "Christine Meat Export Event":
+        top = ["On your way to Meet Export, Christine asks if your radio works", 10, 10, 200,
+               200, 200]
+        opt1 = ["Sorry, I can't focus with music on", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Yeah, but since it's soul car, it only plays music that gels with my current mood", x_pos, pos2, r2, g2, b2]
         opt3 = []
         opt4 = []
         choice1 = "Christine Meat Export Eventopt1"
@@ -463,9 +751,9 @@ def city_event(city_name, select):
         end_flag = 0
 
     if city_name == "Christine Meat Export Eventopt1":
-        top = ["Christine is pleased with your actions", 10, 10, 200,
+        top = ["'Hmm. Lame' Is the last thing Christine says for the rest of the drive", 10, 10, 200,
                200, 200]
-        opt1 = ["1. Cool", x_pos, pos1, r1, g1, b1]
+        opt1 = ["Awkward...", x_pos, pos1, r1, g1, b1]
         opt2 = []
         opt3 = []
         opt4 = []
@@ -478,14 +766,40 @@ def city_event(city_name, select):
             events.append("Christine Meat Export Event")
             for person in dictonaries.pass_arr:
                 if person["Name"] == "Christine":
-                    person["Attitude"] += 5
+                    person["Attitude"] -= 5
         while random_num != []:
             random_num.pop()
 
     if city_name == "Christine Meat Export Eventopt2":
-        top = ["Christine is not pleased with your actions", 10, 10, 200,
+        top = ["Ohh, mind if we give it a go?", 10, 10, 200,
                200, 200]
-        opt1 = ["1. Bummer", x_pos, pos1, r1, g1, b1]
+        opt1 = ["Sure", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Absolutly not", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Christine Meat Export Eventopt1"
+        choice2 = "Christine Meat Export Eventopt3"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Christine Meat Export Eventopt3":
+        top = ["Sorry, I fogot... what's your soul music again?", 10, 10, 200,
+                200, 200]
+        opt1 = ["Rock", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Country", x_pos, pos2, r2, g2, b2]
+        opt3 = ["Techno", x_pos, pos3, r3, g3, b3]
+        opt4 = ["Soft men mumbling about their problems", x_pos, pos4, r4, g4, b4]
+        choice1 = "Christine Meat Export Eventopt4"
+        choice2 = "Christine Meat Export Eventopt4"
+        choice3 = "Christine Meat Export Eventopt4"
+        choice4 = "Christine Meat Export Eventopt4"
+        end_flag = 0
+
+    if city_name == "Christine Meat Export Eventopt4":
+        top = ["'Huh... not usually my thing, but kinda fitting for a dark lonely place like Meet Export'", 10, 10, 200,
+                200, 200]
+        opt1 = ["You and Christine Jam the rest of the ride", x_pos, pos1, r1, g1, b1]
         opt2 = []
         opt3 = []
         opt4 = []
@@ -498,7 +812,7 @@ def city_event(city_name, select):
             events.append("Christine  Export Event")
             for person in dictonaries.pass_arr:
                 if person["Name"] == "Christine":
-                    person["Attitude"] -= 5
+                    person["Attitude"] += 5
         while random_num != []:
             random_num.pop()
 
@@ -691,22 +1005,35 @@ def city_event(city_name, select):
     # ____Passenger Events___
     # These events can randomly happen if the passenger is in your car and traveling to any city.
     if city_name == "Christine Event":
-        top = ["Christine tells you about her wild backstory", 10, 10, 200,
+        top = ["Part way though the trip, your car starts to sputter a bit. Christine suggest she could take a look at it", 10, 10, 200,
                200, 200]
-        opt1 = ["1. What a wild backstory!", x_pos, pos1, r1, g1, b1]
-        opt2 = []
+        opt1 = ["'I appreciate it, but this is a spirit car... I'm just a bit stressed'", x_pos, pos1, r1, g1, b1]
+        opt2 = ["'This thing runs on magic and feelings unfortunately, not much a wrench could do.'", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Christine Event01"
+        choice2 = "Christine Event01"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Christine Event01":
+        top = ["'That would explain why your the only one left with a functioning car. Why'd you bring the mechanic along then?'", 10, 10, 200,
+               200, 200]
+        opt1 = ["'No offense to your husband, but I wanted someone who could handle any disagreements we have on the road'", x_pos, pos1, r1, g1, b1]
+        opt2 = ["'Just kind of chose randomly to be honest'", x_pos, pos2, r2, g2, b2]
         opt3 = []
         opt4 = []
         choice1 = "Christine Eventopt1"
-        choice2 = city_name
+        choice2 = "Christine Eventopt2"
         choice3 = city_name
         choice4 = city_name
         end_flag = 0
 
     if city_name == "Christine Eventopt1":
-        top = ["Christine confidently agrees", 10, 10, 200,
+        top = ["Christine laughs 'Love the guy... but good choice'", 10, 10, 200,
                200, 200]
-        opt1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
+        opt1 = ["You exchange witty banter for the rest of the drive", x_pos, pos1, r1, g1, b1]
         opt2 = []
         opt3 = []
         opt4 = []
@@ -719,27 +1046,71 @@ def city_event(city_name, select):
             events.append("Christine Event")
             for person in dictonaries.pass_arr:
                 if person["Name"] == "Christine":
-                    person["Attitude"] += 3
+                    person["Attitude"] += 5
         while random_num != []:
             random_num.pop()
 
-    if city_name == "Henry Event":
-        top = ["Henry talks about his life", 10, 10, 200,
+    if city_name == "Christine Eventopt2":
+        top = ["'Hmm. Guess that makes sense.'", 10, 10, 200,
                200, 200]
-        opt1 = ["1. Sounds like quite the life!", x_pos, pos1, r1, g1, b1]
+        opt1 = ["The conversation drops and you ride in silence", x_pos, pos1, r1, g1, b1]
         opt2 = []
         opt3 = []
         opt4 = []
-        choice1 = "Henry Eventopt1"
+        choice1 = city[0]
         choice2 = city_name
         choice3 = city_name
         choice4 = city_name
         end_flag = 0
+        if "Christine Event" not in events:
+            events.append("Christine Event")
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Christine":
+                    person["Attitude"] -= 5
+        while random_num != []:
+            random_num.pop()
+
+    if city_name == "Henry Event":
+        top = ["After a bit of driving, Henry asks, 'You won't be coming back to Raven soon by chance will you?'", 10, 10, 200,
+               200, 200]
+        opt1 = ["'Maybe in a while, need a ride back?'", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Gotta take care of some things in the capital, but maybe after", x_pos, pos2, r2, g2, b2]
+        opt3 = ["Wasn't really planning on it, no", x_pos, pos3, r3, g3, b3]
+        opt4 = []
+        choice1 = "Henry Eventopt1"
+        choice2 = "Henry Eventopt1"
+        choice3 = "Henry Eventopt2"
+        choice4 = city_name
+        end_flag = 0
 
     if city_name == "Henry Eventopt1":
-        top = ["Henry bashfully agrees", 10, 10, 200,
+        top = ["I mean go where you need to go first, but it was a desperate situation... never really planed the return trip", 10, 10, 200,
                200, 200]
-        opt1 = ["1. Nice", x_pos, pos1, r1, g1, b1]
+        opt1 = ["I can pick you up on the way back", x_pos, pos1, r1, g1, b1]
+        opt2 = ["I'm not sure where I'll be... no promises", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Henry Eventopt3"
+        choice2 = "Henry Eventopt4"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Henry Eventopt2":
+        top = ["'Look I hate to ask but... I don't really have a plan for getting back... could you... maybe...'",10, 10, 200, 200, 200]
+        opt1 = ["I should have time after I make it to the capital", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Sorry... I wish I could help but I don't want to make promises I can't keep", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Henry Eventopt3"
+        choice2 = "Henry Eventopt4"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Henry Eventopt3":
+        top = ["'I'll hold you to that.' Henry smiles.",10, 10, 200, 200, 200]
+        opt1 = ["Gotta remember to come back after our trip...", x_pos, pos1, r1, g1, b1]
         opt2 = []
         opt3 = []
         opt4 = []
@@ -752,11 +1123,28 @@ def city_event(city_name, select):
             events.append("Henry Event")
             for person in dictonaries.pass_arr:
                 if person["Name"] == "Henry":
-                    person["Attitude"] += 3
+                    person["Attitude"] += 5
         while random_num != []:
             random_num.pop()
 
-    if len(passengers) > 3:
-        pass
+    if city_name == "Henry Eventopt4":
+        top = ["'Oh. It's okay... we'll... we'll figure something out...'",10, 10, 200, 200, 200]
+        opt1 = ["You want to help... but there are bigger fish to fry", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = city[0]
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+        if "Henry Event" not in events:
+            events.append("Henry Event")
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Henry":
+                    person["Attitude"] -= 5
+        while random_num != []:
+            random_num.pop()
+
 
     return [top, opt1, opt2, opt3, opt4, choice1, choice2, choice3, choice4, end_flag]
