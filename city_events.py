@@ -153,7 +153,7 @@ def city_event(city_name, select):
         return city_event("firsto7", select)
     if city_name == "firstblue":
         if car[0] == "color":
-            car[0] = "dark blue"
+            car[0] = "blue"
         return city_event("firsto7", select)
     if city_name == "firstgreen":
         if car[0] == "color":
@@ -202,9 +202,75 @@ def city_event(city_name, select):
         choice4 = city_name
         end_flag = 2
     if city_name == "first00":
-        top = ["You are in Raven, you are driving elsewhere. Do you want to take Christine or Henry with you?", 10, 10, 200, 200, 200]
-        opt1 = ["1. Christine", x_pos, pos1, r1, g1, b1]
-        opt2 = ["2. Henry", x_pos, pos2, r2, g2, b2]
+        top = ["Before you step in, you see a couple staring at your newly summoned car. The woman is holding a child.", 10, 10, 200, 200, 200]
+        opt1 = ["I should probably stop summoning this thing in public places", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "first01"
+        choice2 = "first"
+        choice3 = "first"
+        choice4 = "first"
+        end_flag = 0
+    if city_name == "first01":
+        top = ["'I'm sorry...' says the husband, tall and slender, as elves tend to be.", 10, 10, 200, 200, 200]
+        opt1 = ["continue", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "first02"
+        choice2 = "first"
+        choice3 = "first"
+        choice4 = "first"
+        end_flag = 0
+    if city_name == "first02":
+        top = ["Are you by chance heading in towards Tatst-E Cusine?", 10, 10, 200, 200, 200]
+        opt1 = ["I will be passing through it yes", x_pos, pos1, r1, g1, b1]
+        opt2 = ["You looking for a ride?", x_pos, pos2, r2, g2, b2]
+        opt3 = ["I'm sorry, who are you?", x_pos, pos3, r3, g3, b3]
+        opt4 = []
+        choice1 = "first03"
+        choice2 = "first03"
+        choice3 = "first03"
+        choice4 = "first"
+        end_flag = 0
+    if city_name == "first03":
+        top = ["'I'm Henry, this is my wife Christine. We were... well one of us needs to...'", 10, 10, 200, 200, 200]
+        opt1 = ["...", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "first04"
+        choice2 = "first"
+        choice3 = "first"
+        choice4 = "first"
+        end_flag = 0
+    if city_name == "first04":
+        top = ["'Our friend is sick' Christine finally broke off Henry's stammering. 'and he's all alone right now'", 10, 10, 200, 200, 200]
+        opt1 = ["It's not the safest trip for a small child. And I won't be returning for a while", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "first05"
+        choice2 = "first"
+        choice3 = "first"
+        choice4 = "first"
+        end_flag = 0
+    if city_name == "first05":
+        top = ["'That's alright, one of us will stay with the child.' Christine explained ", 10, 10, 200, 200, 200]
+        opt1 = ["Okay, well you sound pretty adamant Christine. Come on in", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Well Henry, you ready to go?", x_pos, pos2, r2, g2, b2]
+        opt3 = ["Sure, which of you would rather go?", x_pos, pos3, r3, g3, b3]
+        opt4 = []
+        choice1 = "firstopt1"
+        choice2 = "firstopt2"
+        choice3 = "first06"
+        choice4 = "first"
+        end_flag = 0
+    if city_name == "first06":
+        top = ["'Doesn't matter' Henry said. Christine's a mechanic which might be helpful... I'm more of a book guy myself ", 10, 10, 200, 200, 200]
+        opt1 = ["Could always use a mechanic. Hop in Christine", x_pos, pos1, r1, g1, b1]
+        opt2 = ["A scholar sounds like decent company on the road. Come on in Henry", x_pos, pos2, r2, g2, b2]
         opt3 = []
         opt4 = []
         choice1 = "firstopt1"
@@ -213,8 +279,8 @@ def city_event(city_name, select):
         choice4 = "first"
         end_flag = 0
     if city_name == "firstopt1":
-        top = ["Christine joins your car!", 10, 10, 200, 200, 200]
-        opt1 = ["1. Great!", x_pos, pos1, r1, g1, b1]
+        top = ["Christine hands the baby over to Henry and goes to grab her things. Henry thanks you too many times.", 10, 10, 200, 200, 200]
+        opt1 = ["Christine has joined your car!", x_pos, pos1, r1, g1, b1]
         opt2 = []
         opt3 = []
         opt4 = []
@@ -226,8 +292,8 @@ def city_event(city_name, select):
         if "Christine" not in passengers:
             passengers.append("Christine")
     if city_name == "firstopt2":
-        top = ["Henry joins your car!", 10, 10, 200, 200, 200]
-        opt1 = ["1. Great!", x_pos, pos1, r1, g1, b1]
+        top = ["'Okay!' Henry exclames 'Thank you so much! I'll just grab my things...'", 10, 10, 200, 200, 200]
+        opt1 = ["Henry joins your car!", x_pos, pos1, r1, g1, b1]
         opt2 = []
         opt3 = []
         opt4 = []
