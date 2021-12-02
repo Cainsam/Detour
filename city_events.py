@@ -834,10 +834,10 @@ def city_event(city_name, select):
             random_num.pop()
 
     if city_name == "Lion Industries Eventopt1":
-        top = ["I hope you enjoyed your drive!", 10, 10, 200,
+        top = ["On to Taste-E Cuisine", 10, 10, 200,
            200, 200]
-        opt1 = ["1. I did", x_pos, pos1, r1, g1, b1]
-        opt2 = ["2. This seems more like a mimimum viable project than a full game...", x_pos, pos2, r2, g2, b2]
+        opt1 = ["Let's Go!", x_pos, pos1, r1, g1, b1]
+        opt2 = ["I really hope to flesh out this city more after class", x_pos, pos2, r2, g2, b2]
         opt3 = []
         opt4 = []
         choice1 = "Lion Industries"
@@ -1002,6 +1002,269 @@ def city_event(city_name, select):
                     person["Attitude"] += 5
         while random_num != []:
             random_num.pop()
+
+    # ____Tast-E Cuisine Events___
+
+    if city_name == "Tast-E Cuisine Start":
+        if city[0] != "Tast-E Cuisine Start":
+            city[0] = "Tast-E Cuisine Start"
+        if len(events) > 1:
+            return city_event("Taste-E Cuisine Event", select)
+        elif len(random_num) < 1:
+            random_num.append(random_roll())
+        if random_num[0] <= 2:
+            return city_event("Taste-E Cuisine Random 1", select)
+        else:
+            return city_event("Taste-E Cuisine Random 2", select)
+
+    if city_name == "Taste-E Cuisine Random 1":
+        if "Christine Event" not in events and "Christine Event" not in event_archive and "Christine" in passengers:
+                return city_event("Christine Event", select)
+        elif "Henry Event" not in events and "Henry Event" not in event_archive and "Henry" in passengers:
+                return city_event("Henry Event", select)
+        else:
+            while random_num != []:
+                random_num.pop()
+            return city_event("Taste-E Cuisine Start", select)
+
+    if city_name == "Taste-E Cuisine Random 2":
+        if "Henry Taste-E Cuisine Event" not in events and "Henry Taste-E Cuisine Event" not in event_archive and "Henry" in passengers:
+                return city_event("Henry Lion Industries Event", select)
+        elif "Christine Taste-E Cuisine Event" not in events and "Christine Taste-E Cuisine Event" not in event_archive and "Christine" in passengers:
+                return city_event("Christine Taste-E Cuisine Event", select)
+        else:
+            while random_num != []:
+                random_num.pop()
+            return city_event("Taste-E Cuisine Start", select)
+
+    if city_name == "Christine Taste-E Cuisine Event":
+        top = ["'Almost there' Christine says 'Thanks for the lift', she puts her feet on the dash", 10, 10, 200,
+               200, 200]
+        opt1 = ["Hey... thanks kind of my spirit you're putting your feet on... please don't.", x_pos, pos1, r1, g1, b1]
+        opt2 = ["I hope your friend is okay", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Christine Taste-E Cuisine Event01"
+        choice2 = "Christine Taste-E Cuisine Event02"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Henry Taste-E Cuisine Event":
+        top = ["'Almost there' Henry says. 'I hope it wasn't too much trouble...'", 10, 10, 200,
+               200, 200]
+        opt1 = ["No worries. Glad to help", x_pos, pos1, r1, g1, b1]
+        opt2 = ["(stay silent)", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Henry Taste-E Cuisine Event01"
+        choice2 = "Henry Taste-E Cuisine Event02"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Henry Taste-E Cuisine Event01":
+        top = ["'Thanks. If you ever need something from Christine or me, we owe you one.'", 10, 10, 200,
+               200, 200]
+        opt1 = ["'Maybe I'll take you up on that someday'", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Tast-E Cuisine Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+        if "Henry Taste-E Cuisine Event" not in events:
+            events.append("Henry Taste-E Cuisine Event")
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Henry":
+                    person["Attitude"] += 2
+        while random_num != []:
+            random_num.pop()
+
+    if city_name == "Henry Taste-E Cuisine Event02":
+        top = ["Henry sits in silence, seemingly waiting for you to answer the rest of the drive", 10, 10, 200,
+               200, 200]
+        opt1 = ["Just pretend he isn't there...", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Tast-E Cuisine Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+        if "Henry Taste-E Cuisine Event" not in events:
+            events.append("Henry Taste-E Cuisine Event")
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Henry":
+                    person["Attitude"] -= 2
+        while random_num != []:
+            random_num.pop()
+
+    if city_name == "Christine Taste-E Cuisine Event01":
+        top = ["'Shit... sorry...'", 10, 10, 200,
+               200, 200]
+        opt1 = ["'It's alright'", x_pos, pos1, r1, g1, b1]
+        opt2 = ["(stay silent)", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Tast-E Cuisine Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+        if "Christine Taste-E Cuisine Event" not in events:
+            events.append("Christine Taste-E Cuisine Event")
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Christine":
+                    person["Attitude"] -= 2
+        while random_num != []:
+            random_num.pop()
+
+    if city_name == "Christine Taste-E Cuisine Event02":
+        top = ["'Well if you ever need anything from Henry or I, we owe ya. For real.'", 10, 10, 200,
+               200, 200]
+        opt1 = ["'Maybe I'll take you up on that one day'", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Tast-E Cuisine Start"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+        if "Christine Taste-E Cuisine Event" not in events:
+            events.append("Christine Taste-E Cuisine Event")
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Christine":
+                    person["Attitude"] += 2
+        while random_num != []:
+            random_num.pop()
+
+    if city_name == "Taste-E Cuisine Event":
+        top = ["You arrive at Taste-E Cuisine, one of the worst named towns on the mainland", 10, 10, 200,
+           200, 200]
+        opt1 = ["Maybe we can start renaming these towns after something other than corporations soon", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        if passengers[0] == "Henry":
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Henry":
+                    if person["Attitude"] >= 0:
+                        choice1 = "Taste-E Cuisine EventHenry+"
+                    else:
+                        choice1 = "Taste-E Cuisine EventHenry-"
+        else:
+            for person in dictonaries.pass_arr:
+                if person["Name"] == "Christine":
+                    if person["Attitude"] >= 0:
+                        choice1 = "Taste-E Cuisine EventChristine+"
+                    else:
+                        choice1 = "Taste-E Cuisine EventChristine-"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+        while random_num != []:
+            random_num.pop()
+
+    if city_name == "Taste-E Cuisine EventHenry+":
+        top = ["You drop Henry off at his friend's apartment. 'Here, and thanks' he says, and puts 100 credits in your hand", 10, 10, 200,
+           200, 200]
+        opt1 = ["I can't take this...", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Thank you! I...", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Taste-E Cuisine EventHenry+1"
+        choice2 = "Taste-E Cuisine EventHenry+1"
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Taste-E Cuisine EventHenry+1":
+        top = ["But Henry has already closed the door. He smiles and waves and goes inside.", 10, 10, 200,
+           200, 200]
+        opt1 = ["What a strange fellow", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Taste-E Cuisine End"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Taste-E Cuisine EventHenry-1":
+        top = ["You drop Henry off at his friend's apartment. He doesn't speak as he gets out of the car", 10, 10, 200,
+               200, 200]
+        opt1 = ["I guess he's just a quiet guy", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Feeling's mutual bud", x_pos, pos2, r2, g2, b2]
+        opt3 = []
+        opt4 = []
+        choice1 = "Taste-E Cuisine End"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Taste-E Cuisine EventChristine+":
+        top = ["You drop Christine off at his friend's apartment. 'Thanks' she says, and throws something in your lap", 10, 10, 200,
+               200, 200]
+        opt1 = ["Wha-", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Why'd you-", x_pos, pos2, r2, g2, b2]
+        opt3 = ["I-", x_pos, pos3, r3, g3, b3]
+        opt4 = ["What's thi-", x_pos, pos4, r4, g4, b4]
+        choice1 = "Taste-E Cuisine EventChristine+1"
+        choice2 = "Taste-E Cuisine EventChristine+1"
+        choice3 = "Taste-E Cuisine EventChristine+1"
+        choice4 = "Taste-E Cuisine EventChristine+1"
+        end_flag = 0
+
+    if city_name == "Taste-E Cuisine EventChristine+1":
+        top = ["She leaves without another word. You look down to see she gave you a multi-tool", 10, 10, 200,
+               200, 200]
+        opt1 = ["Alright...", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Taste-E Cuisine End"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Taste-E Cuisine EventChristine-":
+        top = ["You drop Christine off at his friend's apartment. She leaves without a word", 10, 10, 200,
+               200, 200]
+        opt1 = ["Guess there was nothing to say", x_pos, pos1, r1, g1, b1]
+        opt2 = []
+        opt3 = []
+        opt4 = []
+        choice1 = "Taste-E Cuisine End"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+
+    if city_name == "Taste-E Cuisine End":
+        top = ["It's getting dark... might was well spend the day in town", 10, 10, 200,
+               200, 200]
+        opt1 = ["Go to a pub", x_pos, pos1, r1, g1, b1]
+        opt2 = ["Go to an old arcade", x_pos, pos2, r2, g2, b2]
+        opt3 = ["Go to a nice restaurant", x_pos, pos3, r3, g3, b3]
+        opt4 = ["Go to the Tast-E Cuisine headquarters", x_pos, pos4, r4, g4, b4]
+        choice1 = "Taste-E Cuisine End"
+        choice2 = city_name
+        choice3 = city_name
+        choice4 = city_name
+        end_flag = 0
+        while passengers != []:
+            passengers.pop()
+
+
     # ____Passenger Events___
     # These events can randomly happen if the passenger is in your car and traveling to any city.
     if city_name == "Christine Event":
